@@ -20,7 +20,7 @@ public:
 		sort(nums.begin(), nums.end());
 		vector<vector<int>> ans;
 		vector<int> path;
-		f90(0, path, nums, ans, 0);
+		f90(0, path, nums, ans);
 		return ans;
 	};
 
@@ -37,25 +37,15 @@ public:
 		f78(nums, i + 1, path, ans);
 	}
 
-	static void f90(int i, vector<int> &path,vector<int> &nums, vector<vector<int>> &ans, int size) {
-		if (i == nums.size()) {
-			ans.push_back(path);
-			return;
-		}
+	static void f90(int i, vector<int> &path,vector<int> &nums, vector<vector<int>> &ans) {
+		ans.push_back(path);
 
-		int j = i + 1;
-		while ( j < nums.size() && nums[i] == nums[j] ) {
-			j++;
-		}
-		
-		f90(j, path, nums, ans, size);
-		for (;i < j ;i++) {
+		for ( int k = i; i < nums.size(); i++) {
+			if (i > k && nums[i] == nums[i - 1] ) continue;
 			path.push_back(nums[i]);
-			f90(j, path, nums, ans, size);
-
+			f90(i + 1, path, nums, ans);
 			path.pop_back();
 		}
-
 
 	}
 
@@ -68,6 +58,7 @@ public:
 		vector<int> path(nums.size());
 
 		f90_2(0, path, nums, ans, 0);
+
 		return ans;
 	}
 
@@ -77,7 +68,11 @@ public:
 		int size) {
 
 		if (i == nums.size()) {
-			ans.push_back(vector<int>(path.begin(), path.begin() + size));
+			vector<int> temp;
+			for (int k = 0; k < size; k++) {
+				temp.push_back(path[k]);
+			}
+			ans.push_back(temp);
 			return;
 		}
 
@@ -86,14 +81,11 @@ public:
 		while (j < nums.size() && nums[j] == nums[i]) {
 			j++;
 		}
-
-		//  选0个当前数
+		
 		f90_2(j, path, nums, ans, size);
-
-		//  选1~k个当前数
-		for (int k = 1; k <= j - i; k++) {
-			path[size + k - 1] = nums[i];   // 写入对应位置
-			f90_2(j, path, nums, ans, size + k);
+		for (; i < j; i++) {
+			path[size++] = nums[i];
+			f90_2(j, path, nums, ans, size );
 		}
 	}
 	

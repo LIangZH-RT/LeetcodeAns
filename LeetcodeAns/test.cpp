@@ -39,15 +39,39 @@ void test_solution::test78() {
 }
 
 void test_solution::test90() {
-	vector<vector<int>> ans;
+	vector<vector<int>> ans1,ans2;
 	vector<int> nums = randomVector_sort(6, 4);
 	printArray(nums.data(), nums.size());
-	ans = Leetcode78_90().subsetsWithDup2(nums);
-	for (auto i : ans) {
+	ans1 = Leetcode78_90().subsetsWithDup2(nums);
+	ans2 = Leetcode78_90().subsetsWithDup1(nums);
+
+	cout << "----- S1 -----" << endl;
+	for (auto i : ans1) {
 		std::cout << "{";
 		for (auto j : i) {
 			std::cout << j << ",";
 		}
 		std::cout << "}" << std::endl;
 	}
+	cout << "----- S2 -----" << endl;
+	for (auto i : ans2) {
+		std::cout << "{";
+		for (auto j : i) {
+			std::cout << j << ",";
+		}
+		std::cout << "}" << std::endl;
+	}
+}
+
+
+void test_solution::test42() {
+	vector<int> height = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+	vector<int> h2 = { 4,2,0,3,2,5 };
+	cout << Leetcode42_11::trap(h2);
+}
+
+void test_solution::test11() {
+	vector<int> h1 = {1,8,6,2,5,4,8,3,7};
+	vector<int> h2 = { 1,1,0,14,20 };
+	cout << Leetcode42_11::maxArea(h2);
 }
