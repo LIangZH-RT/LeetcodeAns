@@ -27,7 +27,7 @@
     <ClInclude Include="Leetcode34.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Leetcode78.h">
+    <ClInclude Include="Leetcode78_90.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="random.h">

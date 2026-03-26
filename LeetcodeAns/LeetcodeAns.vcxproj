@@ -136,7 +136,7 @@
     <ClInclude Include="Leetcode21.h" />
     <ClInclude Include="Leetcode33.h" />
     <ClInclude Include="Leetcode34.h" />
-    <ClInclude Include="Leetcode78.h" />
+    <ClInclude Include="Leetcode78_90.h" />
     <ClInclude Include="random.h" />
     <ClInclude Include="test_solution.h" />
   </ItemGroup>

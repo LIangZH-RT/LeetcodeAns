@@ -28,7 +28,21 @@ void test_solution::test(int n, int size, int max, int min) {
 void test_solution::test78() {
 	vector<vector<int>> ans;
 	vector<int> nums = UniqueArray(5, 1);
-	ans = Leetcode78::subsets(nums);
+	ans = Leetcode78_90::subsets(nums);
+	for (auto i : ans) {
+		std::cout << "{";
+		for (auto j : i) {
+			std::cout << j << ",";
+		}
+		std::cout << "}" << std::endl;
+	}
+}
+
+void test_solution::test90() {
+	vector<vector<int>> ans;
+	vector<int> nums = randomVector_sort(6, 4);
+	printArray(nums.data(), nums.size());
+	ans = Leetcode78_90().subsetsWithDup2(nums);
 	for (auto i : ans) {
 		std::cout << "{";
 		for (auto j : i) {

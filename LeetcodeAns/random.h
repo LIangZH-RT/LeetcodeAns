@@ -9,7 +9,7 @@ int* randomArray(int size, int max_value,int min_value = 0);
 
 int randomnumber(int max, int min = 0);
 
-std::vector<int> randomVector_sort(int size, int max_value, int min_value = 0);
+std::vector<int> randomVector_sort(int size, int max_value, int min_value = 1);
 
 void printArray(int* arr, int size);
 
