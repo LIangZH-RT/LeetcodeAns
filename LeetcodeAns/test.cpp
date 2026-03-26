@@ -39,11 +39,22 @@ void test_solution::test78() {
 }
 
 void test_solution::test90() {
-	vector<vector<int>> ans;
+	vector<vector<int>> ans1,ans2;
 	vector<int> nums = randomVector_sort(6, 4);
 	printArray(nums.data(), nums.size());
-	ans = Leetcode78_90().subsetsWithDup2(nums);
-	for (auto i : ans) {
+	ans1 = Leetcode78_90().subsetsWithDup2(nums);
+	ans2 = Leetcode78_90().subsetsWithDup1(nums);
+
+	cout << "----- S1 -----" << endl;
+	for (auto i : ans1) {
+		std::cout << "{";
+		for (auto j : i) {
+			std::cout << j << ",";
+		}
+		std::cout << "}" << std::endl;
+	}
+	cout << "----- S2 -----" << endl;
+	for (auto i : ans2) {
 		std::cout << "{";
 		for (auto j : i) {
 			std::cout << j << ",";

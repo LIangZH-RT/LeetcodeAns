@@ -6,6 +6,9 @@
 #include "random.h"
 #include <bits/stdc++.h>
 
+using std::cout;
+using std::endl;
+
 class test_solution {
 public:
 	 static void test(int n,int size,int max,int min=0);
