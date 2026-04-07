@@ -6,6 +6,7 @@
 #include "Leetcode42_11.h"
 #include "random.h"
 #include <bits/stdc++.h>
+#include "Leetcode_dfs.h"
 
 using std::cout;
 using std::endl;
@@ -17,6 +18,7 @@ public:
 	 static void test90();
 	 static void test42();
 	 static void test11();
+	 static void test746();
 
 };
 

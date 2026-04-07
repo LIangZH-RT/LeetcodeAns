@@ -75,3 +75,9 @@ void test_solution::test11() {
 	vector<int> h2 = { 1,1,0,14,20 };
 	cout << Leetcode42_11::maxArea(h2);
 }
+
+
+void test_solution::test746() {
+	vector<int> cost = { 10, 15, 20 };
+	cout << Leetcode_dfs::minCostClimbingStairs(cost);
+}
