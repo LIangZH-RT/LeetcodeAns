@@ -9,6 +9,12 @@ class {
 
 		f983_2_2(days, costs, way, 0, dp);
 	}
+	/*
+	以下f983 方法都是从顶开始的递归 标准为从底开始 底部依赖少
+	
+	例如
+	f(n-1) 只依赖于越界位置f(n) 底部状态简单分析
+	*/
 
 	static int f983_1(std::vector<int> days, std::vector<int> costs, int i) {
 		if (i == days.size()) {
@@ -77,14 +83,15 @@ class {
 			return dp[i];
 		}
 		int ans = INT_MAX;
+
 		for (int j = 0, k = i; j < 3; j++) {
 			while (k < days.size() && days[k] < days[i] + way[j]) {
 				k++;
 			}
-			int cost = costs[j] + f983_2_2(days, costs, way, k, dp);
 
-			ans = std::min({ ans, cost });
+			ans = std::min({ ans, costs[j] + f983_2_2(days, costs, way, k, dp) });
 		}
+
 		return dp[i]= ans;
 	}
 
