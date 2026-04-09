@@ -96,6 +96,47 @@ public:
 		return dp[i]= ans;
 	}
 
+	static int f983_3_1(std::vector<int> days, std::vector<int> costs,int i) {
+		int n = days.size();
+		std::vector<int> dp(n + 1, -1);
+		dp[n] = 0;
+
+		for (int i = n - 1; i > 0 ; i++) {
+			int cost1 = costs[0] + dp[i + 1];
+
+			int j = i;
+			while (j >= 0 && days[i] + 7 > days[j]) j++;
+
+			int cost2 = costs[1] + dp[j];
+
+			int j = i;
+			while (j >= 0 && days[i] + 30 > days[j]) j++;
+
+			int cost3 = costs[2] + dp[j];
+
+			dp[i] = std::min({ cost1, cost2, cost3 });
+		}
+		
+
+		return dp[0];
+	}
+
+	static int f983_3_2(std::vector<int> days, std::vector<int> costs, int i,int ways[]) {
+		int n = days.size();
+		std::vector<int> dp(n + 1, -1);
+
+		for (int i = n - 1; i > 0; i--) {
+			for (int j = i, int k = 0; k < 3; k++) {
+				while ( j < n && days[i] + ways[k] > days[j]) {
+					j++;
+				}
+				int cost = costs[k] + dp[j];
+				dp[i] = std::min({ dp[i], cost });
+			}
+			
+		}
+		return dp[0];
+	}
 
 	static int climbStairs(int n) {
 		std::vector<int> dp(n + 1, -1);
@@ -138,5 +179,24 @@ public:
 
 		return std::min({ cost1, cost2 });
 	}
+
+
+	 static  int rob(std::vector<int> nums) {
+
+		 int ans = f89(nums,0);
+
+		 return ans;
+	}
+
+	 static int f89(std::vector<int> nums,int i) {
+		if(i >= nums.size()) return 0;
+
+		int m = nums[i] + f89(nums, i + 2);
+
+		// 100 1 1 100
+
+
+	 }
+
 	
 };
